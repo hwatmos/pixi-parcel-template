@@ -16,3 +16,4 @@ Thumbs.db
 
 # Parcel cache
 .cache/
+.parcel_cache/
