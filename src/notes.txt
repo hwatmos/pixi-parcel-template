@@ -1,2 +1,0 @@
-Start parcel:
-* yarn parcel src/index.html
