@@ -7,6 +7,10 @@
     "build": "parcel build"
   },
   "devDependencies": {
-    "parcel": "latest"
+    "@parcel/config-default": "2.9.2",
+    "parcel": "2.9.2"
+  },
+  "staticFiles": {
+    "staticOutPath": "static"
   }
 }

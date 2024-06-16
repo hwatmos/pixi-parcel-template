@@ -5,8 +5,24 @@
         <title>My test</title>
         <link rel="stylesheet" href="styles.css" />
         <script type="module" src="app.js"></script>
+        <script src="https://pixijs.download/release/pixi.js"></script>
     </head>
     <body>
-        <h1>Hello there</h1>
+        <script type="module">
+            // Bug workaround -- wrap in a function
+            // (read more https://github.com/pixijs/pixijs/issues/10456)
+            (async () => {
+                const app = new PIXI.Application();
+                await app.init({ width: 640, height: 360 });
+                document.body.appendChild(app.canvas);
+                // load PNG image
+                await PIXI.Assets.load('static/test_image.png');
+                let sprite = PIXI.Sprite.from('static/test_image.png');
+                app.stage.addChild(sprite);
+            })();
+            // read:
+            // https://github.com/elwin013/parcel-reporter-static-files-copy?tab=readme-ov-file
+        </script>
+
     </body>
 </html>
