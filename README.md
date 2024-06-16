@@ -20,14 +20,14 @@ Static is copied after build, so if new resources are added to the _static_ fold
 
 Using Parcel with PIXI causes the "Can't await Application.init from top level..." error.  To avoidad, PIXI app must be wrapped in a function, like so:
 
-'''
+```
 <script type="module">
     (async () => {
         const app = new PIXI.Application();
         ...
     })();
 </script>
-'''
+```
 
 More info on this here: https://github.com/pixijs/pixijs/issues/10456
 
@@ -39,9 +39,9 @@ Assets loaded by PIXI, e.g. by using `PIXI.Assets.load()`, are not copied to dis
 
 To start Parcel (i.e. build the webapp into the dist directory and start the server), run from root:
 
-'''
+```
 yarn parcel .\src\index.html
-'''
+```
 
 and open localhost:1234 in web browser.
 
