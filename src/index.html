@@ -11,6 +11,7 @@
         <script type="module">
             // Bug workaround -- wrap in a function
             // (read more https://github.com/pixijs/pixijs/issues/10456)
+            "use strict";
             (async () => {
                 const app = new PIXI.Application();
                 await app.init({ width: 640, height: 360 });
