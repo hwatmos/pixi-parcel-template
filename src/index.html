@@ -4,25 +4,18 @@
         <meta charset="utf-8" />
         <title>My test</title>
         <link rel="stylesheet" href="styles.css" />
-        <script type="module" src="app.js"></script>
-        <script src="https://pixijs.download/release/pixi.js"></script>
+        <script src="./pixi.js"></script>
     </head>
     <body>
+        <div id="app-container"></div>
         <script type="module">
-            // Bug workaround -- wrap in a function
-            // (read more https://github.com/pixijs/pixijs/issues/10456)
-            "use strict";
             (async () => {
-                const app = new PIXI.Application();
-                await app.init({ width: 640, height: 360 });
-                document.body.appendChild(app.canvas);
-                // load PNG image
-                await PIXI.Assets.load('static/test_image.png');
-                let sprite = PIXI.Sprite.from('static/test_image.png');
-                app.stage.addChild(sprite);
+                engine = await import("./modules/engine.mjs");
+                main = await import("./modules/main.mjs");
+                await engine.engine_start();
+                await main.hello_world();
+                main.main_loop();
             })();
-            // read:
-            // https://github.com/elwin013/parcel-reporter-static-files-copy?tab=readme-ov-file
         </script>
 
     </body>
